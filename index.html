@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css.css">
+    <title>Форма бронирования</title>
+</head>
+<body>
+    <div id="form">
+        <h2>Форма бронирования</h2>
+        <form onsubmit="return validateForm()"> 
+            <div>
+            <label> Имя</label>
+            <input tupe="text" id="fname" required><br><br>
+            </div>
+
+            <div>
+                <label>Номер телефона</label>
+                <input type="text" id="PhoneNumber" required><br><br>
+            </div>
+
+            <div> 
+                <label>Дата</label>
+                <input tupe="date" id="dateField"  min="29.06.2024" required><br><br>
+            </div>
+
+            <div>
+                <label>Время начала</label>
+                <input tupe="time" id="timeField" required><br><br>
+            </div>
+
+            <div>
+                <label>Длительность брони</label>
+                <select id="ti" name="ti" required><br><br>
+                    <option value="fi"> 1</option>
+                    <option value="tw"> 3</option>
+                    <option value="fr"> 5</option>
+                </select>
+            </div>
+            <div class="cnopka">
+                <button type="submit" class="btn"> Отправить</button>
+            </div>
+            </form>
+            </div>
+
+    <script>
+        
+        function validateForm() {
+            var name=document.getElementById("fname").value;
+            var PhoneNumber=document.getElementById("PhoneNumber").value;
+            var letterPattern=/^[А-Яа-я]+$/;
+
+            if (!name.match(letterPattern)) {
+                alert("Имя должно содержать только русские буквы");
+                return false;
+            }
+            if (!PhoneNumber.match(/^\+7\d{10}$/)) {
+                alert("Некорректный номер телефона");
+                return false;
+            }
+            return true;
+        }
+    </script>
+    
+</body>
+</html>
